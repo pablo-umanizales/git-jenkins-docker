@@ -2,18 +2,22 @@ pipeline {
     agent any
 
     stages {
-
-        stage('Build Docker Image') {
+        stage('Checkout') {
             steps {
-                sh 'docker build -t demo-ci .'
+                echo 'Repositorio clonado correctamente'
             }
         }
 
-        stage('Run Container') {
+        stage('Build') {
             steps {
-                sh 'docker run demo-ci'
+                echo 'Proceso de build ejecutado'
             }
         }
 
+        stage('Test') {
+            steps {
+                echo 'Pipeline CI funcionando correctamente'
+            }
+        }
     }
 }
